@@ -1,0 +1,23 @@
+{
+ "case_id": "demo-case-0001",
+ "topic_id": "challenge-15c85674",
+ "topic_title": "文献智能问答",
+ "difficulty": 1,
+ "domain": "reading",
+ "task_instruction": "演示用例：请读取同目录下的材料文件，给出带原文证据的结论，并把无法判断的部分写入 uncertainties。",
+ "output_contract": {
+  "case_identifiers": "输入标识 :: `case_id`、`paper_id`、`material_version` 与本次输入一致。 | 子字段: case_id, material_version, paper_id",
+  "answers": "逐题回答 :: `answers[]` 中每个问题一项，包含 `question_id`、回答文本 `answer`、成立条件列表 `conditions`；不得省略无法回答的问题。 | 子字段: answer, conditions, question_id",
+  "answer_status": "回答状态 :: 每项 `status` 明确区分 `answered`（完整回答）、`partial`（部分回答）、`insufficient_evidence`（材料不足）、`input_error`（输入读取失败）。 | 子字段: answered, input_error, insufficient_evidence, partial, status",
+  "claims": "每条关键结论附 kind、evidence、source_id、location",
+  "unanswered_parts": "未完成部分 :: 每项 `unanswered_parts[]` 列明未回答部分及原因；没有则为空列表。",
+  "coverage": "阅读范围 :: `coverage` 说明已读章节、未读章节及原因；实际读取情况结合平台运行记录核验。",
+  "case_id": "原样保留",
+  "result": "题目主结果，结构化字段按题目任务卡",
+  "status": "answered|partial|insufficient_evidence|input_error",
+  "uncertainties": "未报告、无法判断、冲突和人工复核项"
+ },
+ "evaluation": {
+  "mode": "demo"
+ }
+}
